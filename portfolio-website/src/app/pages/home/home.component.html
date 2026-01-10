@@ -1,0 +1,72 @@
+<section class="hero" [@fadeIn]>
+  <div class="container">
+    <div class="hero-wrapper">
+      <!-- Profile Image -->
+      <div class="profile-image-container">
+        <div class="profile-image-wrapper">
+          <img src="assets/me.png" alt="Vishal Srivastava - Professional Photo" class="profile-image">
+          <div class="profile-glow"></div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-icon-wrapper">
+          <i class="fas fa-code"></i>
+        </div>
+        <h1 class="hero-title">Hi, I'm Vishal Srivastava</h1>
+        <div class="typing-effect">
+          <p class="hero-subtitle">{{ professions[currentProfession] }}</p>
+        </div>
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          <button 
+            *ngFor="let prof of professions; let i = index"
+            class="carousel-dot"
+            [class.active]="i === currentProfession"
+            (click)="goToProfession(i)"
+            [attr.aria-label]="'Go to ' + prof">
+          </button>
+        </div>
+        
+        <p class="hero-description">
+          <i class="fas fa-lightbulb"></i>
+          Passionate about building innovative solutions and creating remarkable user experiences.
+          Welcome to my digital portfolio.
+        </p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" (click)="scrollToProjects()">
+            <i class="fas fa-rocket"></i> View My Work
+          </button>
+          <button class="btn btn-secondary" (click)="downloadResume()">
+            <i class="fas fa-download"></i> Download Resume
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-preview">
+  <div class="container">
+    <h2><i class="fas fa-tools"></i> Tech Stack</h2>
+    <p style="color: #FFFFFF;">Specialized skills across modern web technologies and frameworks</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Frontend</h3>
+        <p>Angular • React • TypeScript • HTML5 • CSS3 • Tailwind</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-server"></i></div>
+        <h3>Backend</h3>
+        <p>Node.js • Express • Python • SQL • MongoDB • Firebase</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Tools & DevOps</h3>
+        <p>Git • Docker • AWS • CI/CD • GitHub Actions • Webpack</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<section class="experience">
+  <div class="container">
+    <h1>Work Experience</h1>
+    <div class="timeline">
+      <div *ngFor="let exp of experiences" class="timeline-item" [class.expanded]="exp.expanded">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content" (click)="toggleExpand(exp)">
+          <div class="exp-header">
+            <div class="exp-info">
+              <h3>{{ exp.position }}</h3>
+              <p class="company">{{ exp.company }}</p>
+              <p class="duration">{{ exp.duration }}</p>
+            </div>
+            <span class="toggle-icon">{{ exp.expanded ? '−' : '+' }}</span>
+          </div>
+
+          <div *ngIf="exp.expanded" [@expandCollapse] class="exp-details">
+            <p class="description">{{ exp.description }}</p>
+            <div class="technologies">
+              <span *ngFor="let tech of exp.technologies" class="tech-badge">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
